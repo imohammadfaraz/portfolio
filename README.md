@@ -53,10 +53,10 @@ portfolio-website/
 ## 📬 Contact
 
 **Mohammad Faraz**
-- 📧 Email: ifarazmohammad@example.com
+- 📧 Email: ifarazmohammad@gmail.com
 - 💼 LinkedIn: [linkedin.com/in/imohammadfaraz](https://www.linkedin.com/in/imohammadfaraz/)
 - 🐙 GitHub: [github.com/imohammadfaraz](https://github.com/imohammadfaraz)
-- 🌍 Portfolio: [mohammadfaraz portfolio](https://mohammadfaraz.com/)[your-live-link-here]
+- 🌍 Portfolio: [mohammadfaraz portfolio](https://mohammadfaraz.com/)
 
 ---
 
