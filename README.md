@@ -2,14 +2,15 @@
 
 A modern, responsive personal portfolio website showcasing my projects, technical skills, and professional journey. Built to give visitors a quick, clean overview of who I am and what I do.
 
-**🔗 Live Demo:** [your-live-link-here](#)
+**🔗 Live Demo:** [mohammadfaraz portfolio](https://mohammadfaraz.com/)
 
 ---
 
 ## 📸 Preview
 
 <!-- Add a screenshot or GIF of your site here -->
-![Portfolio Preview](./assets/preview.png)
+<img width="2346" height="1392" alt="image" src="https://github.com/user-attachments/assets/367eaa21-2052-4ca7-a20b-2297e7b8e2c9" />
+
 
 ---
 
@@ -49,43 +50,13 @@ portfolio-website/
 
 ---
 
-## 🚀 Getting Started
-
-### Prerequisites
-- A modern web browser
-- [Node.js](https://nodejs.org/) *(only if using a framework like React/Next.js)*
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/your-username/portfolio-website.git
-
-# Navigate into the project folder
-cd portfolio-website
-
-# If using a framework:
-npm install
-npm run dev
-```
-
-If it's a static HTML/CSS/JS site, simply open `index.html` in your browser — no build step required.
-
----
-
 ## 📬 Contact
 
 **Mohammad Faraz**
-- 📧 Email: your-email@example.com
-- 💼 LinkedIn: [linkedin.com/in/your-profile](#)
-- 🐙 GitHub: [github.com/your-username](#)
-- 🌍 Portfolio: [your-live-link-here](#)
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
+- 📧 Email: ifarazmohammad@example.com
+- 💼 LinkedIn: [linkedin.com/in/imohammadfaraz](https://www.linkedin.com/in/imohammadfaraz/)
+- 🐙 GitHub: [github.com/imohammadfaraz](https://github.com/imohammadfaraz)
+- 🌍 Portfolio: [mohammadfaraz portfolio](https://mohammadfaraz.com/)[your-live-link-here]
 
 ---
 
