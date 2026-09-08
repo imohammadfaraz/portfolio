@@ -1,63 +1,61 @@
-# 🌐 Mohammad Faraz — Product Manager | Portfolio Website
+# Hi, I'm Faraz 👋
 
-A modern, responsive personal portfolio website showcasing my projects, technical skills, and professional journey. Built to give visitors a quick, clean overview of who I am and what I do.
+### Senior Product Manager · Builder · Product Thinker
 
-**🔗 Live Demo:** [mohammadfaraz portfolio](https://mohammadfaraz.com/)
+9+ years across **Jio, Deloitte, Borzo**, building products used by **millions of users**.
 
----
+I **build products, experiment with AI, and share what I learn**.
 
-## 📸 Preview
+My work sits at the intersection of product strategy, user experience, experimentation, technology, and execution.
 
-<!-- Add a screenshot or GIF of your site here -->
-<img width="2346" height="1392" alt="image" src="https://github.com/user-attachments/assets/367eaa21-2052-4ca7-a20b-2297e7b8e2c9" />
-
+I use GitHub to document what I'm building, from product experiments and AI prototypes to practical tools and product thinking.
 
 ---
 
-## ✨ Features
+## What I Do
 
-- Fully responsive design (mobile, tablet, desktop)
-- Smooth scroll & subtle animations
-- Projects section with live demo & source code links
-- Skills / tech stack showcase
-- About Me & experience/education timeline
-- Downloadable resume
-- Contact form / direct social links
-- Dark / light mode *(remove if not applicable)*
+🧠 **Product Thinking**
+- Turning user problems into clear product opportunities, hypotheses, and solutions.
 
----
+🤖 **AI Products**
+- Experimenting with AI-powered products, workflows, agents, and experiences.
 
-## 🛠️ Tech Stack
+🛠️ **Product Prototypes**
+- Building lightweight prototypes to test ideas instead of only writing about them.
 
-**Frontend:** HTML5, CSS3, JavaScript *(or React / Next.js / Tailwind CSS — update as needed)*
-**Deployment:** Vercel / Netlify / GitHub Pages *(pick one)*
-**Other Tools:** Git, VS Code
+📊 **Experiments & Analytics**
+- Exploring data, metrics, experimentation, and product growth.
+
+✍️ **Product Writing**
+- Sharing practical lessons on product management, decision-making, and building products.
 
 ---
 
-## 📂 Project Structure
+## ⚡ Selected Impact
 
-```
-portfolio-website/
-├── assets/           # Images, icons, resume PDF
-├── css/               # Stylesheets
-├── js/                # JavaScript files
-├── index.html         # Main entry point
-└── README.md
-```
+☁️ **JioCloud**
+- Built AI-powered **Memories**, **Semantic Search**, **Video Moderation**, and desktop experiences.
 
-*(Adjust structure to match your actual repo — e.g., `/src`, `/public`, `/components` if using React.)*
+📦 **Borzo**
+- Reduced courier cancellations from **30% → 7%** and grew insurance revenue from **₹0.5M → ₹6M/month**.
+
+🟢 **Deloitte**
+- Building an engineering platform serving **50,000+ engineers**
 
 ---
 
-## 📬 Contact
+### 🔗 Find Me
 
-**Mohammad Faraz**
-- 📧 Email: ifarazmohammad@gmail.com
-- 💼 LinkedIn: [linkedin.com/in/imohammadfaraz](https://www.linkedin.com/in/imohammadfaraz/)
-- 🐙 GitHub: [github.com/imohammadfaraz](https://github.com/imohammadfaraz)
-- 🌍 Portfolio: [mohammadfaraz portfolio](https://mohammadfaraz.com/)
+🌐 **Portfolio** → [mohammadfaraz.com](https://mohammadfaraz.com)
+
+💼 **LinkedIn** → [linkedin.com/in/imohammadfaraz](https://www.linkedin.com/in/imohammadfaraz/)
+
+💻 **GitHub** → [github.com/imohammadfaraz](https://github.com/imohammadfaraz)
+
+📸 **Instagram** → [@produxtmanager](https://www.instagram.com/produxtmanager)
+
+✍️ **Substack** → [@produxtmanager](https://substack.com/@produxtmanager)
 
 ---
 
-⭐ If you like this project, consider giving it a star on GitHub!
+> **Don't just talk about products. Build them. Measure them. Learn. Repeat.**
