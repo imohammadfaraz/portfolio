@@ -2,7 +2,7 @@
 
 ### Senior Product Manager · Builder · Product Thinker
 
-9+ years across **Jio, Deloitte, Borzo**, building products used by **millions of users**.
+9+ years across **Deloitte, Jio, Borzo**, building products used by **millions of users**.
 
 I **build products, experiment with AI, and share what I learn**.
 
