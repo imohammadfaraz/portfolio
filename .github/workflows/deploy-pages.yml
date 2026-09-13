@@ -30,6 +30,39 @@ jobs:
         run: |
           sed -i 's#href="resume.html"#href="resume/"#g' index.html
           sed -i 's#<title>Resume — Mohammad Faraz</title>#<title>Resume — Mohammad Faraz</title><link rel="canonical" href="https://mohammadfaraz.com/resume/">#' resume/index.html
+      - name: Restore SVG social icons
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path("index.html")
+          html = p.read_text(encoding="utf-8")
+
+          html = html.replace(
+              ".top-socials a:hover{color:var(--accent)}.social-icon{font-size:11px;font-weight:800}",
+              ".top-socials a:hover{color:var(--accent)}.social-icon-img{width:20px;height:20px;display:block;object-fit:contain;background:transparent}"
+          )
+          html = html.replace(
+              '<span class="social-icon">in</span>',
+              '<img class="social-icon-img" src="linkedin.svg" alt="">'
+          )
+          html = html.replace(
+              '<span class="social-icon">gh</span>',
+              '<img class="social-icon-img" src="github.svg" alt="">'
+          )
+          html = html.replace(
+              'href="https://www.linkedin.com/in/imohammadfaraz/" target="_blank" rel="noopener">LinkedIn ↗</a>',
+              'href="https://www.linkedin.com/in/imohammadfaraz/" target="_blank" rel="noopener"><img class="cta-icon" src="linkedin.svg" alt="">LinkedIn ↗</a>',
+              1
+          )
+          html = html.replace(
+              'href="https://github.com/imohammadfaraz" target="_blank" rel="noopener">GitHub ↗</a>',
+              'href="https://github.com/imohammadfaraz" target="_blank" rel="noopener"><img class="cta-icon" src="github.svg" alt="">GitHub ↗</a>',
+              1
+          )
+
+          p.write_text(html, encoding="utf-8")
+          PY
       - name: Upload website
         uses: actions/upload-pages-artifact@v4
         with:
