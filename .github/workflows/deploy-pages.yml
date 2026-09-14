@@ -28,15 +28,15 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Apply SEO-ready homepage metadata
+      - name: Apply SEO-ready metadata and links
         run: |
           python - <<'PY'
           from pathlib import Path
           import json
 
+          # Homepage SEO
           p = Path("index.html")
           html = p.read_text(encoding="utf-8")
-
           head_start = html.index("<meta charset=")
           style_start = html.index("<style>")
           seo_head = '''<meta charset="UTF-8">
@@ -114,61 +114,43 @@ jobs:
           if '"@type":"ProfilePage"' not in html:
               html = html.replace("</head>", schema_tag + "</head>", 1)
 
-          html = html.replace(
-              '<a class="logo" href="#">Mohammad Faraz</a>',
-              '<a class="logo" href="/">Mohammad Faraz</a>'
-          )
+          html = html.replace('<a class="logo" href="#">Mohammad Faraz</a>', '<a class="logo" href="/">Mohammad Faraz</a>')
           html = html.replace('href="resume.html"', 'href="resume/"')
-          html = html.replace(
-              '<div class="eyebrow">Senior Product Manager · Builder · Product Thinker</div>',
-              '<div class="eyebrow">Mohammad Faraz · Senior Product Manager · Builder · Product Thinker</div>'
-          )
+          html = html.replace('<div class="eyebrow">Senior Product Manager · Builder · Product Thinker</div>', '<div class="eyebrow">Mohammad Faraz · Senior Product Manager · Builder · Product Thinker</div>')
 
-          html = html.replace(
-              '.top-socials a:hover{color:var(--accent)}.social-icon{font-size:11px;font-weight:800}',
-              '.top-socials a:hover{color:var(--accent)}.social-icon-img{width:20px;height:20px;display:block;object-fit:contain;background:transparent}'
-          )
-          html = html.replace(
-              '<span class="social-icon">in</span>',
-              '<img class="social-icon-img" src="linkedin.svg" alt="">'
-          )
-          html = html.replace(
-              '<span class="social-icon">gh</span>',
-              '<img class="social-icon-img" src="github.svg" alt="">'
-          )
-          html = html.replace(
-              'href="https://www.linkedin.com/in/imohammadfaraz/" target="_blank" rel="noopener">LinkedIn ↗</a>',
-              'href="https://www.linkedin.com/in/imohammadfaraz/" target="_blank" rel="noopener"><img class="cta-icon" src="linkedin.svg" alt="">LinkedIn ↗</a>',
-              1
-          )
-          html = html.replace(
-              'href="https://github.com/imohammadfaraz" target="_blank" rel="noopener">GitHub ↗</a>',
-              'href="https://github.com/imohammadfaraz" target="_blank" rel="noopener"><img class="cta-icon" src="github.svg" alt="">GitHub ↗</a>',
-              1
-          )
-
+          html = html.replace('.top-socials a:hover{color:var(--accent)}.social-icon{font-size:11px;font-weight:800}', '.top-socials a:hover{color:var(--accent)}.social-icon-img{width:20px;height:20px;display:block;object-fit:contain;background:transparent}')
+          html = html.replace('<span class="social-icon">in</span>', '<img class="social-icon-img" src="linkedin.svg" alt="">')
+          html = html.replace('<span class="social-icon">gh</span>', '<img class="social-icon-img" src="github.svg" alt="">')
+          html = html.replace('href="https://www.linkedin.com/in/imohammadfaraz/" target="_blank" rel="noopener">LinkedIn ↗</a>', 'href="https://www.linkedin.com/in/imohammadfaraz/" target="_blank" rel="noopener"><img class="cta-icon" src="linkedin.svg" alt="">LinkedIn ↗</a>', 1)
+          html = html.replace('href="https://github.com/imohammadfaraz" target="_blank" rel="noopener">GitHub ↗</a>', 'href="https://github.com/imohammadfaraz" target="_blank" rel="noopener"><img class="cta-icon" src="github.svg" alt="">GitHub ↗</a>', 1)
           p.write_text(html, encoding="utf-8")
+
+          # Resume SEO: keep the user-uploaded content, add crawler/social metadata idempotently.
+          rp = Path("resume/index.html")
+          resume = rp.read_text(encoding="utf-8")
+          if '<meta name="robots"' not in resume:
+              resume = resume.replace('<meta name="viewport" content="width=device-width, initial-scale=1">', '<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">')
+          if '<meta property="og:url"' not in resume:
+              resume = resume.replace('<meta property="og:type" content="profile">', '<meta property="og:type" content="profile">\n<meta property="og:url" content="https://mohammadfaraz.com/resume/">\n<meta name="twitter:card" content="summary">\n<meta name="twitter:title" content="Mohammad Faraz — Resume">\n<meta name="twitter:description" content="Senior Product Manager with 9+ years of experience across AI products, enterprise platforms, and consumer internet products.">')
+          if '<link rel="canonical" href="https://mohammadfaraz.com/resume/">' not in resume:
+              resume = resume.replace('<title>Mohammad Faraz — Resume</title>', '<title>Mohammad Faraz — Resume</title>\n<link rel="canonical" href="https://mohammadfaraz.com/resume/">')
+          rp.write_text(resume, encoding="utf-8")
           PY
-
-      - name: Normalize canonical resume URL
-        run: |
-          sed -i 's#href="resume.html"#href="resume/"#g' index.html
-          sed -i 's#<title>Resume — Mohammad Faraz</title>#<title>Resume — Mohammad Faraz</title><link rel="canonical" href="https://mohammadfaraz.com/resume/">#' resume/index.html
-
-      - name: Persist SEO-ready source files
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          if ! git diff --cached --quiet; then
-            git commit -m "SEO: improve homepage indexing metadata [skip ci]"
-            git push
-          fi
 
       - name: Upload website
         uses: actions/upload-pages-artifact@v4
         with:
           path: .
+
+      - name: Persist SEO-ready source files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html resume/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "SEO: improve indexing metadata [skip ci]"
+            git push
+          fi
 
       - name: Deploy to GitHub Pages
         id: deployment
